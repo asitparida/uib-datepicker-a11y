@@ -321,7 +321,7 @@ angular.module('ui.bootstrap.datepicker.a11y', ['ui.bootstrap.dateparser', 'ui.b
       $scope.keydown = function (evt) {
           var key = $scope.keys[evt.which];
 
-          if (!key || evt.shiftKey || evt.altKey || $scope.disabled) {
+          if (!key || evt.altKey || $scope.disabled) {
               return;
           }
 
@@ -329,7 +329,6 @@ angular.module('ui.bootstrap.datepicker.a11y', ['ui.bootstrap.dateparser', 'ui.b
           if (!self.shortcutPropagation) {
               evt.stopPropagation();
           }
-
           if (key === 'enter' || key === 'space') {
               if (self.isDisabled(self.activeDate)) {
                   return; // do nothing
@@ -463,10 +462,25 @@ angular.module('ui.bootstrap.datepicker.a11y', ['ui.bootstrap.dateparser', 'ui.b
             date = date + 1;
         } else if (key === 'down') {
             date = date + 7;
+        } else if (key === 'home' || key === 'end') {
+            if (evt.ctrlKey && key === 'home') {
+                this.activeDate.setMonth(0);
+                date = 1;                
+            }
+            else if (evt.ctrlKey && key === 'end') {
+                this.activeDate.setMonth(11);
+                date = 31;
+            }
         } else if (key === 'pageup' || key === 'pagedown') {
-            var month = this.activeDate.getMonth() + (key === 'pageup' ? -1 : 1);
-            this.activeDate.setMonth(month, 1);
-            date = Math.min(getDaysInMonth(this.activeDate.getFullYear(), this.activeDate.getMonth()), date);
+            if (!evt.shiftKey) {
+                var month = this.activeDate.getMonth() + (key === 'pageup' ? -1 : 1);
+                this.activeDate.setMonth(month, 1);
+                date = Math.min(getDaysInMonth(this.activeDate.getFullYear(), this.activeDate.getMonth()), date);
+            }
+            else {
+                var year = this.activeDate.getFullYear() + (key === 'pageup' ? -1 : 1);
+                this.activeDate.setFullYear(year);
+            }
         } else if (key === 'home') {
             date = 1;
         } else if (key === 'end') {
