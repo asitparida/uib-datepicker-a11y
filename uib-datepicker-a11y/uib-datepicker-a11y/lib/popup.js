@@ -22,7 +22,7 @@ angular.module("uib/template/datepickerPopup/a11y", []).run(["$templateCache", f
       "");
 
     $templateCache.put("uib/template/datepicker/a11y/day.html",
-     "<table role=\"grid\" aria-labelledby=\"{{::uniqueId}}-title\" aria-activedescendant=\"{{activeDateId}}\">\n" +
+     "<table id=\"tb{{datePickerUID}}\" role=\"grid\" aria-labelledby=\"{{::uniqueId}}-title\" aria-activedescendant=\"\">\n" +
      "  <thead>\n" +
      "    <tr>\n" +
      "      <th><button type=\"button\" class=\"btn btn-default btn-sm pull-left uib-left\" ng-click=\"move(-1)\" tabindex=\"-1\"><i aria-hidden=\"true\" class=\"glyphicon glyphicon-chevron-left\"></i><span class=\"sr-only\">previous</span></button></th>\n" +
@@ -55,7 +55,7 @@ angular.module("uib/template/datepickerPopup/a11y", []).run(["$templateCache", f
      "");
 
     $templateCache.put("uib/template/datepicker/a11y/month.html",
-      "<table role=\"grid\" aria-labelledby=\"{{::uniqueId}}-title\" aria-activedescendant=\"{{activeDateId}}\">\n" +
+      "<table id=\"tb{{datePickerUID}}\" role=\"grid\" aria-labelledby=\"{{::uniqueId}}-title\" aria-activedescendant=\"\">\n" +
       "  <thead>\n" +
       "    <tr>\n" +
       "      <th><button type=\"button\" class=\"btn btn-default btn-sm pull-left uib-left\" ng-click=\"move(-1)\" tabindex=\"-1\"><i aria-hidden=\"true\" class=\"glyphicon glyphicon-chevron-left\"></i><span class=\"sr-only\">previous</span></button></th>\n" +
@@ -83,7 +83,7 @@ angular.module("uib/template/datepickerPopup/a11y", []).run(["$templateCache", f
       "");
 
     $templateCache.put("uib/template/datepicker/a11y/year.html",
-      "<table role=\"grid\" aria-labelledby=\"{{::uniqueId}}-title\" aria-activedescendant=\"{{activeDateId}}\">\n" +
+      "<table id=\"tb{{datePickerUID}}\" role=\"grid\" aria-labelledby=\"{{::uniqueId}}-title\" aria-activedescendant=\"\">\n" +
       "  <thead>\n" +
       "    <tr>\n" +
       "      <th><button type=\"button\" class=\"btn btn-default btn-sm pull-left uib-left\" ng-click=\"move(-1)\" tabindex=\"-1\"><i aria-hidden=\"true\" class=\"glyphicon glyphicon-chevron-left\"></i><span class=\"sr-only\">previous</span></button></th>\n" +
