@@ -1,0 +1,21 @@
+{
+  "name": "uib-datepicker-a11y",
+  "homepage": "https://github.com/asitparida/uib-datepicker-a11y",
+  "authors": [
+    "Asit Kumar Parida <asitparida@live.in>"
+  ],
+  "description": "Angular UI Bootstrap datepicker with a11y fixes",
+  "keywords": [
+    "Angular",
+    "a11y",
+    "datepicker"
+  ],
+  "dependencies": {"angular": "1.5.8", "angular-ui-bootstrap": "2.1.4"},
+  "license": "MIT",
+  "ignore": [
+    "uib-datepicker-a11y/**",
+    "uib-datepicker-a11y/*.*",
+    ".gitattributes",
+    ".gitignore"
+  ]
+}
