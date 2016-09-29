@@ -452,7 +452,7 @@ angular.module('ui.bootstrap.datepicker.a11y', ['ui.bootstrap.dateparser', 'ui.b
     }
 
     this.handleKeyDown = function (key, evt) {
-        var date = this.activeDate.getDate();   
+        var date = this.activeDate.getDate();
 
         if (key === 'left') {
             date = date - 1;
@@ -462,6 +462,18 @@ angular.module('ui.bootstrap.datepicker.a11y', ['ui.bootstrap.dateparser', 'ui.b
             date = date + 1;
         } else if (key === 'down') {
             date = date + 7;
+        } else if (key === 'home' || key === 'end') {
+            if (evt.ctrlKey) {
+                if (key === 'home') {
+                    this.activeDate.setMonth(0);
+                    this.activeDate.setDate(1);
+                }
+                else if (key === 'end') {
+                    this.activeDate.setMonth(11);
+                    this.activeDate.setDate(31);
+                }
+                return;
+            }                        
         } else if (key === 'pageup' || key === 'pagedown') {
             if (!evt.shiftKey) {
                 var month = this.activeDate.getMonth() + (key === 'pageup' ? -1 : 1);
