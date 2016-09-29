@@ -2,7 +2,6 @@
     plumber = require('gulp-plumber'),
     sass = require('gulp-sass'),
     concat = require('gulp-concat'),
-    cssmin = require('gulp-cssmin'),
     del = require('del'),
     html2js = require('gulp-html-js-template'),
     minify = require('gulp-minify'),
@@ -24,28 +23,6 @@ var resolveMinifiedPath = function (path) {
     };
 }
 
-// Clean the distributable css directory
-gulp.task('minify:clean:css', function () {
-    return del('css/');
-});
-
-// Compile out sass files and minify it
-gulp.task('minify:css', ['minify:clean:css'], function () {
-    var min = resolveMinifiedPath("./dist/css/app.min.css");
-    return gulp.src('scss/*.scss')
-        .pipe(plumber(errorHandler))
-        .pipe(sass())
-        .pipe(gulp.dest('css/'))
-        .pipe(cssmin())
-        .pipe(concat(min.file))
-        .pipe(gulp.dest(min.path));
-});
-
-//Watch CSS task
-gulp.task('default:css', function () {
-    gulp.watch('scss/*.scss', ['minify:css']);
-});
-
 // Clean the concated js directory
 gulp.task('clean:concat:js', function () {
     return del('dist/min/uib-datepicker-a11y.min.js');
@@ -66,7 +43,15 @@ gulp.task('concat:js', ['clean:concat:js', 'minify:js'], function () {
 });
 
 //Watch JS task
-gulp.task('default:richcc:js', function () {
+gulp.task('default:uib-dt-a11y:js', function () {
     gulp.watch(['resource/datepicker.js', 'resource/popup.js'], ['concat:js']);
 });
+
+//Watch CSS task
+gulp.task('default:uib-dt-a11y:dist-prod', function () {
+    return gulp.src(['dist/min/uib-datepicker-a11y.min.js'])
+        .pipe(gulp.dest('../../dist'));
+});
+
+
 
