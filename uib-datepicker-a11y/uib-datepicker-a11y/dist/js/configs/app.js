@@ -1,0 +1,1 @@
+﻿angular.module('Sample.UI', ['ui.bootstrap', 'ui.bootstrap.datepickerPopup.a11y']);
