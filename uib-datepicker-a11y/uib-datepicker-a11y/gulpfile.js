@@ -45,3 +45,28 @@ gulp.task('minify:css', ['minify:clean:css'], function () {
 gulp.task('default:css', function () {
     gulp.watch('scss/*.scss', ['minify:css']);
 });
+
+// Clean the concated js directory
+gulp.task('clean:concat:js', function () {
+    return del('dist/min/uib-datepicker-a11y.min.js');
+});
+
+// Minify JS Files
+gulp.task('minify:js', function () {
+    return gulp.src('resource/*.js')
+    .pipe(minify())
+    .pipe(gulp.dest('js'))
+});
+
+//Concat JS Files
+gulp.task('concat:js', ['clean:concat:js', 'minify:js'], function () {
+    return gulp.src('./js/*min.js')
+    .pipe(concat('uib-datepicker-a11y.min.js'))
+    .pipe(gulp.dest('./dist/min'));
+});
+
+//Watch JS task
+gulp.task('default:richcc:js', function () {
+    gulp.watch(['resource/datepicker.js', 'resource/popup.js'], ['concat:js']);
+});
+
