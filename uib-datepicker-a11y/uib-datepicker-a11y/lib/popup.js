@@ -15,9 +15,9 @@ angular.module("uib/template/datepickerPopup/a11y", []).run(["$templateCache", f
 
     $templateCache.put("uib/template/datepicker/a11y/datepicker.html",
       "<div ng-switch=\"datepickerMode\">\n" +
-      "  <div uib-daypicker ng-switch-when=\"day\" tabindex=\"0\" class=\"uib-daypicker\"></div>\n" +
-      "  <div uib-monthpicker ng-switch-when=\"month\" tabindex=\"0\" class=\"uib-monthpicker\"></div>\n" +
-      "  <div uib-yearpicker ng-switch-when=\"year\" tabindex=\"0\" class=\"uib-yearpicker\"></div>\n" +
+      "  <div uib-daypicker-a11y ng-switch-when=\"day\" tabindex=\"0\" class=\"uib-daypicker\"></div>\n" +
+      "  <div uib-monthpicker-a11y ng-switch-when=\"month\" tabindex=\"0\" class=\"uib-monthpicker\"></div>\n" +
+      "  <div uib-yearpicker-a11y ng-switch-when=\"year\" tabindex=\"0\" class=\"uib-yearpicker\"></div>\n" +
       "</div>\n" +
       "");
 
@@ -200,7 +200,7 @@ function($scope, $element, $attrs, $compile, $log, $parse, $window, $document, $
     }
 
     // popup element used to display calendar
-    popupEl = angular.element('<div uib-datepicker-popup-wrap><div uib-datepicker></div></div>');
+    popupEl = angular.element('<div uib-datepicker-a11y-popup-wrap><div uib-datepicker-a11y></div></div>');
 
     popupEl.attr({
       'ng-model': 'date',

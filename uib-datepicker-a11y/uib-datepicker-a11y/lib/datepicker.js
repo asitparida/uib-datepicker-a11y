@@ -153,7 +153,8 @@ angular.module('ui.bootstrap.datepicker.a11y', ['ui.bootstrap.dateparser', 'ui.b
 
   $scope.isActive = function(dateObject) {
     if (self.compare(dateObject.date, self.activeDate) === 0) {
-      $scope.activeDateId = dateObject.uid;
+        $scope.activeDateId = dateObject.uid;
+        console.log($scope.activeDateId);
       return true;
     }
     return false;
@@ -205,9 +206,9 @@ angular.module('ui.bootstrap.datepicker.a11y', ['ui.bootstrap.dateparser', 'ui.b
       $scope.selectedDt = null;
       this._refreshView();
       if ($scope.activeDt) {
-        $scope.activeDateId = $scope.activeDt.uid;
+          $scope.activeDateId = $scope.activeDt.uid;
       }
-
+      console.log($scope.activeDateId);
       var date = ngModelCtrl.$viewValue ? new Date(ngModelCtrl.$viewValue) : null;
       date = dateParser.fromTimezone(date, ngModelOptions.timezone);
       ngModelCtrl.$setValidity('dateDisabled', !date ||
@@ -592,7 +593,7 @@ angular.module('ui.bootstrap.datepicker.a11y', ['ui.bootstrap.dateparser', 'ui.b
     },
     require: ['uibDatepickerA11y', '^ngModel'],
     restrict: 'A',
-    controller: 'uibDatepickerA11yController',
+    controller: 'UibDatepickerA11yController',
     controllerAs: 'datepicker',
     link: function(scope, element, attrs, ctrls) {
       var datepickerCtrl = ctrls[0], ngModelCtrl = ctrls[1];
