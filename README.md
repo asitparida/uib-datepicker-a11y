@@ -22,7 +22,7 @@ Bower Package : uib-datepicker-a11y
 2.	Load the ‘ui.bootstrap.datepickerPopup.a11y’ as dependency in your application
 3.	Then, we need to provide the following change in the html as compared to the erstwhile directive 
 
-Replace the colored portion
+Replace the
 <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="dt" is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
 
 New
