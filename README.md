@@ -23,8 +23,5 @@ Bower Package : uib-datepicker-a11y
 3.	Then, we need to provide the following change in the html as compared to the erstwhile directive 
 
 Replace the
-#####<input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="dt" is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
-
-New
-#####<input type="text" class="form-control" uib-datepicker-a11y-popup="{{format}}" ng-model="dt" is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
+##### uib-datepicker-popup="{{format}}" with uib-datepicker-a11y-popup="{{format}}"
 
