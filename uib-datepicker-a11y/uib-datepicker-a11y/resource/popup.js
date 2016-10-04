@@ -47,7 +47,7 @@ angular.module("uib/template/datepickerPopup/a11y", []).run(["$templateCache", f
      "            on dt\"\n" +
      "          ng-click=\"select(dt.date)\"\n" +
      "          ng-disabled=\"::dt.disabled\"\n" +
-     "          tabindex=\"-1\"><span ng-class=\"::{'text-muted': dt.secondary, 'text-info': dt.current}\">{{::dt.label}}</span></button>\n" +
+     "          tabindex=\"-1\"><span ng-class=\"::{'text-muted': dt.secondary, 'text-info': dt.current}\" ><span>{{::dt.label}}</span><span style=\"position: absolute;clip: rect(1px, 1px, 1px, 1px);padding: 0;border: 0;height: 1px;width: 1px;overflow: hidden;\">{{::dt.ariaHelpLabel}}</span></span></button>\n" +
      "      </td>\n" +
      "    </tr>\n" +
      "  </tbody>\n" +

@@ -210,8 +210,9 @@ angular.module('ui.bootstrap.datepicker.a11y', ['ui.bootstrap.dateparser', 'ui.b
                   $scope.activeDateId = $scope.activeDt.uid;
                   var sid = '#' + $scope.activeDateId + ' button span';
                   var _node = document.querySelector(sid);
-                  if (_node)
-                      _node.innerHTML = $scope.activeDt.label;
+                  if (_node) {
+                      _node.innerHTML = '<span>' + $scope.activeDt.label + '</span><span style=\"position: absolute;clip: rect(1px, 1px, 1px, 1px);padding: 0;border: 0;height: 1px;width: 1px;overflow: hidden;\">' + $scope.activeDt.ariaHelpLabel + '</span>';
+                  }
                   _node = document.querySelector('#tb' + $scope.datePickerUID + '[aria-activedescendant]');
                   if (_node)
                       _node.setAttribute('aria-activedescendant', $scope.activeDateId);
@@ -232,6 +233,7 @@ angular.module('ui.bootstrap.datepicker.a11y', ['ui.bootstrap.dateparser', 'ui.b
           var dt = {
               date: date,
               label: dateParser.filter(date, format),
+              ariaHelpLabel: dateParser.filter(date, 'MMMM yyyy'),
               selected: model && this.compare(date, model) === 0,
               disabled: this.isDisabled(date),
               past: time < 0,
@@ -465,7 +467,7 @@ angular.module('ui.bootstrap.datepicker.a11y', ['ui.bootstrap.dateparser', 'ui.b
         } else if (key === 'home' || key === 'end') {
             if (evt.ctrlKey && key === 'home') {
                 this.activeDate.setMonth(0);
-                date = 1;                
+                date = 1;
             }
             else if (evt.ctrlKey && key === 'end') {
                 this.activeDate.setMonth(11);
