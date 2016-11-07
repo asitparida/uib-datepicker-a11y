@@ -288,6 +288,9 @@ angular.module('ui.bootstrap.datepicker.a11y', ['ui.bootstrap.dateparser', 'ui.b
           }
 
           $scope.$broadcast('uib:datepicker.focus');
+          
+          /* EMITING EVENT TO BE CAPTURED BY PARENT POP-UP CONTAINER AND FOCUS APPOPRIATELY */
+          $scope.$emit('uib:datepicker.select.done');
       };
 
       $scope.move = function (direction) {
@@ -341,7 +344,7 @@ angular.module('ui.bootstrap.datepicker.a11y', ['ui.bootstrap.dateparser', 'ui.b
           } else {
               self.handleKeyDown(key, evt);
               self.refreshView();
-          }
+          }          
       };
 
       $element.on('keydown', function (evt) {

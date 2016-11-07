@@ -376,6 +376,11 @@ function($scope, $element, $attrs, $compile, $log, $parse, $window, $document, $
     }));
   }
 
+  /* ADDING CUSTOM EVENT RECIEVER FROM UNDERLYING DAYPICKER SO AS TO FOCUS THE INPUT BOX */
+  $scope.$on('uib:datepicker.select.done', function () {
+      if ($element[0]) $element[0].focus();      
+  });
+
   $scope.$watch('isOpen', function(value) {
     if (value) {
       if (!$scope.disabled) {
